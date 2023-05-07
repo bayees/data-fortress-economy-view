@@ -69,4 +69,4 @@ jobs:
           SSH_HOST: ${{ secrets.TOWER_SSH_HOST }}
 
       - name: Stop the server
-        run: ssh staging 'ls'
+        run: ssh tower 'ls'
