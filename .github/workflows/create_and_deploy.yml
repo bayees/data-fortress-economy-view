@@ -44,7 +44,7 @@ jobs:
     name: "Deploy to staging"
     runs-on: ubuntu-latest
 
-steps:
+    steps:
       - name: Tailscale
         uses: tailscale/github-action@v1
         with:
