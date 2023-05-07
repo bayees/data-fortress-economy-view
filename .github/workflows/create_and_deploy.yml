@@ -39,8 +39,33 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
+
+  deploy:
+    name: "Deploy to staging"
+    runs-on: ubuntu-latest
+
+steps:
       - name: Tailscale
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+      
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/tower.key
+          chmod 600 ~/.ssh/tower.key
+          cat >>~/.ssh/config <<END
+          Host tower
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/tower.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.TOWER_SSH_USER }}
+          SSH_KEY: ${{ secrets.TOWER_SSH_KEY }}
+          SSH_HOST: ${{ secrets.TOWER_SSH_HOST }}
+
+      - name: Stop the server
+        run: ssh staging 'ls'
