@@ -51,22 +51,17 @@ jobs:
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
       
-      - name: Configure SSH
+      - name: Create SSH key
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/tower.key
-          chmod 600 ~/.ssh/tower.key
-          cat >>~/.ssh/config <<END
-          Host tower
-            HostName $SSH_HOST
-            User $SSH_USER
-            IdentityFile ~/.ssh/tower.key
-            StrictHostKeyChecking no
-          END
+          echo "$SSH_PRIVATE_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        shell: bash
         env:
-          SSH_USER: ${{ secrets.TOWER_SSH_USER }}
-          SSH_KEY: ${{ secrets.TOWER_SSH_KEY }}
-          SSH_HOST: ${{ secrets.TOWER_SSH_HOST }}
+          SSH_PRIVATE_KEY: ${{secrets.TOWER_SSH_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.TOWER_SSH_KNOWN_HOSTS}}
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
 
       - name: Stop the server
         run: ssh tower 'ls'
