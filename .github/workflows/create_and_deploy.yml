@@ -64,4 +64,4 @@ jobs:
           SSH_KEY_PATH: ${{ github.workspace }}/../private.key
 
       - name: Stop the server
-        run: ssh Tower 'ls'
+        run: ssh root@Tower 'ls ..'
