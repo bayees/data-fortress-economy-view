@@ -51,17 +51,11 @@ jobs:
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
       
-      - name: Create SSH key
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ../private.key
-          sudo chmod 600 ../private.key
-          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-        shell: bash
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.TOWER_SSH_KEY}}
-          SSH_KNOWN_HOSTS: ${{secrets.TOWER_SSH_KNOWN_HOSTS}}
-          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
-
-      - name: Stop the server
-        run: ssh root@Tower 'ls ..'
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.TOWER_SSH_HOST }}
+          username: ${{ secrets.TOWER_SSH_USERNAME }}
+          password: ${{ secrets.TOWER_SSH_PASSWORD }}
+          port: ${{ secrets.TOWER_SSH_PORT }}
+          script: whoami
