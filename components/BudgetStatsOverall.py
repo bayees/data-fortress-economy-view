@@ -40,7 +40,7 @@ wc_winning_times_card = html.Div(
                                 children=[
                                     html.Img(
                                         className="img-fluid bx-lg",
-                                        src="./assets/images/ic_world_cup.png",
+                                        src="./assets/images/prince.png",
                                         style={"width": "8rem"},
                                     )
                                 ],
