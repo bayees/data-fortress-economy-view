@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.TOWER_SSH_PASSWORD }}
           port: ${{ secrets.TOWER_SSH_PORT }}
           script: |
-            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:release
             docker stop ${{ env.CONTAINER_NAME }} 
             docker rm ${{ env.CONTAINER_NAME }} 
             docker run -d \
@@ -72,4 +72,4 @@ jobs:
             -e MINIO_SECRET_KEY=${{ secrets.MINIO_ACCESS_KEY }} \
             -e MINIO_SSL=${{ secrets.MINIO_ACCESS_KEY }} \
             -e MINIO_REGION=${{ secrets.MINIO_ACCESS_KEY }} \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:release
