@@ -24,10 +24,10 @@ sidebar = html.Div(
                 ),
                 dbc.NavLink(
                     [
-                        html.I(className="tf-icons bx bx-wallet fas fa-wallet"), 
-                        html.Span("Location", className="me-2"),
+                        html.I(className="tf-icons bx bx-map-alt fas fa-map"), 
+                        html.Span("Map", className="me-2"),
                     ],
-                    href="/budget",
+                    href="/map",
                     active="exact",
                     className="pe-3"
                 ),

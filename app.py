@@ -13,6 +13,7 @@ from components.NavbarVertical import sidebar
 from components.Footer import Footer
 from dash.dependencies import Input, Output
 from pages.home import home_page_content
+from pages.map import map_page_content
 import glob
 from utils.data import get_budget, get_actuals
 
@@ -93,8 +94,8 @@ app.layout = serve_layout
 def routing(path):
     if path == "/":
         return home_page_content
-    elif path == "/budget":
-        return budget_page_content
+    elif path == "/map":
+        return map_page_content
 
 app.index_string = """<!DOCTYPE html>
 <html>
