@@ -36,4 +36,4 @@ def get_actuals():
     return df
 
 if __name__ == "__main__":
-    print(get_actuals())
+    print(max(get_actuals()['date_actual']))

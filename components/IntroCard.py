@@ -16,7 +16,7 @@ IntroCard = html.Div(
                                     className="card-header card-m-0 me-2 pb-3",
                                     children=[
                                         html.H2(
-                                            ["Personal finance Dashboard"],
+                                            ["Personal Location Tracking"],
                                             className="card-title m-0 me-2 mb-2",
                                             style={"font-size": "2vw"},
                                         ),
@@ -31,7 +31,7 @@ IntroCard = html.Div(
                                 ),
                                 html.P(
                                     [
-                                        "A personal budget dashboard is a visual representation of an individual's spending habits and financial goals. The dashboard shows the user's estimated expenses and income for a certain period, along with their actual spending and earnings. This allows users to track their expenses against their budget in real-time and make informed decisions about future purchases.",
+                                        "A personal location tracking dashboard is a visual representation of an individual's movements and travel history. The dashboard shows the user's estimated location and route for a certain period, along with their actual location and travel history. This allows users to track their movements against their plans in real-time and make informed decisions about future travel.",
                                         html.A(
                                             " Budget tab.",
                                             href="/budget",
@@ -42,19 +42,19 @@ IntroCard = html.Div(
                                 ),
                                 html.P(
                                     [
-                                        "The dashboard typically includes various charts and graphs that display key financial metrics such as monthly income, expenses by category, and changes in net worth over time. Users can drill down into specific categories of expenses to see where they are overspending and adjust their budgets accordingly.",
+                                        "The location tracking dashboard can be customized to include specific features such as alerts when a user deviates from their planned route or reminders to visit certain locations on time. It can also integrate with travel planning software or transportation accounts to automatically import travel data and simplify tracking movements.",
                                     ],
                                     className="card-title me-4",
                                 ),
                                 html.P(
                                     [
-                                        "The personal budget dashboard can be customized to include specific features such as alerts when a user exceeds their budget or reminders to pay bills on time. It can also integrate with personal finance software or bank accounts to automatically import spending data and simplify tracking expenses.",
+                                        "The location tracking dashboard can be customized to include specific features such as alerts when a user deviates from their planned route or reminders to visit certain locations on time. It can also integrate with travel planning software or transportation accounts to automatically import travel data and simplify tracking movements.",
                                     ],
                                     className="card-title me-4",
                                 ),
                                 html.P(
                                     [
-                                        "Overall, a personal budget dashboard provides users with a comprehensive view of their finances and helps them stay on top of their spending and saving goals.",
+                                        "Overall, a location tracking dashboard provides users with a comprehensive view of their movements and helps them stay on top of their travel plans and goals.",
                                     ],
                                     className="card-title me-4",
                                 ),

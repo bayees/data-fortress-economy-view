@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-from utils.data import get_budget, get_actuals
+from utils.data import get_budget
 
 budget = get_budget()
-actuals = get_actuals()

@@ -8,7 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  CONTAINER_NAME: data-fortress-economy-view
+  CONTAINER_NAME: data-fortress-location-tracking
   CONTAINER_PORT: 5700
 
 jobs:
