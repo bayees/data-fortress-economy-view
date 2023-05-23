@@ -5,9 +5,10 @@
   bottom: 0;
   width: 5rem;
   padding: 2rem 1rem;
-  background-color: #f8f9fa;
+  background-color: #fff;
   z-index: 1050;
   transition: width 0.3s ease-in-out;
+  box-shadow: 0 2px 4px 0 rgba(32, 121, 255, 0.308) !important;
 }
 
 /* when the user hovers on the sidebar, expand it */
