@@ -65,6 +65,8 @@ def update_table(query_year, budget_df):
 
     pivot_df = pivot_df.sort_values(by=["Year Total"], ascending=True)
 
+    pivot_df = pivot_df.fillna(0)
+
     pivot_df.loc[
         :,
         [
