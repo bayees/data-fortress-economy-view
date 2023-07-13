@@ -15,6 +15,7 @@ from dash.dependencies import Input, Output
 from pages.home import home_page_content
 from pages.budget import budget_page_content
 from pages.actuals import actuals_page_content
+from pages.transactions import transactions_page_content
 import glob
 from utils.data import get_budget, get_actuals
 
@@ -97,6 +98,8 @@ def routing(path):
         return budget_page_content
     elif path == "/actuals":
         return actuals_page_content
+    elif path == "/transactions":
+        return transactions_page_content
 
 
 app.index_string = """<!DOCTYPE html>

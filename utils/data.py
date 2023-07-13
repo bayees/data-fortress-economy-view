@@ -28,11 +28,11 @@ def read_curated(file: str, columns:list=['*'], filter:str = '') -> pd.DataFrame
 
 
 def get_budget():
-    df = read_curated('dash/budget.parquet')
+    df = read_curated('curated/dash/budget.parquet')
     return df
 
 def get_actuals():
-    df = read_curated('dash/actuals.parquet', filter="where account_name = 'C&V Budget'")
+    df = read_curated('curated/dash/actuals.parquet', filter="where account_name = 'C&V Budget'")
     return df
 
 if __name__ == "__main__":

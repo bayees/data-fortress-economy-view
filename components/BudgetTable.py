@@ -14,7 +14,7 @@ BudgetTable = html.Div(
                     className="card-header card-m-0 me-2 pb-3",
                     children=[
                         html.H4(
-                            "Standings in WorldCups",
+                            "Budget",
                             className="card-title m-0 me-2",
                             style={"font-size": "1.5vw"},
                         ),

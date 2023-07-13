@@ -40,6 +40,15 @@ sidebar = html.Div(
                     active="exact",
                     className="pe-3"
                 ),
+                dbc.NavLink(
+                    [
+                        html.I(className="tf-icons bx bx-credit-card fas fa-credit-card"), 
+                        html.Span("Transaction", className="me-2"),
+                    ],
+                    href="/transactions",
+                    active="exact",
+                    className="pe-3"
+                ),
             ],
             vertical=True,
             pills=True,
