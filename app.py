@@ -52,40 +52,42 @@ app = dash.Dash(
 
 server = app.server
 
-app.layout = html.Div(
-    className="layout-wrapper layout-content-navbar",
-    children=[
-        html.Div(
-            className="layout-container",
-            children=[
-                dcc.Location(id="url"),
-                data_store,
-                html.Aside(className="", children=[sidebar]),
-                html.Div(
-                    className="layout-page",
-                    children=[
-                        html.Div(
-                            className="content-wrapper",
-                            children=[
-                                html.Div(
-                                    className="flex-grow-1 container-p-y p-0",
-                                    id="page-content",
-                                    children=[],
-                                ),
-                                html.Footer(
-                                    className="content-footer footer bg-footer-theme",
-                                    children=[Footer],
-                                    style={"margin-left": "6rem"},
-                                ),
-                            ],
-                        )
-                    ],
-                ),
-            ],
-        )
-    ],
-)
+def serve_layout():
+    return html.Div(
+        className="layout-wrapper layout-content-navbar",
+        children=[
+            html.Div(
+                className="layout-container",
+                children=[
+                    dcc.Location(id="url"),
+                    data_store,
+                    html.Aside(className="", children=[sidebar]),
+                    html.Div(
+                        className="layout-page",
+                        children=[
+                            html.Div(
+                                className="content-wrapper",
+                                children=[
+                                    html.Div(
+                                        className="flex-grow-1 container-p-y p-0",
+                                        id="page-content",
+                                        children=[],
+                                    ),
+                                    html.Footer(
+                                        className="content-footer footer bg-footer-theme",
+                                        children=[Footer],
+                                        style={"margin-left": "6rem"},
+                                    ),
+                                ],
+                            )
+                        ],
+                    ),
+                ],
+            )
+        ],
+    )
 
+app.layout = serve_layout
 
 @callback(
     Output(component_id="page-content", component_property="children"),
