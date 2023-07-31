@@ -24,6 +24,15 @@ sidebar = html.Div(
                 ),
                 dbc.NavLink(
                     [
+                        html.I(className="tf-icons bx bx-line-chart fas fa-line-chart "), 
+                        html.Span("Overview", className="me-2"),
+                    ],
+                    href="/overview",
+                    active="exact",
+                    className="pe-3"
+                ),
+                dbc.NavLink(
+                    [
                         html.I(className="tf-icons bx bx-wallet fas fa-wallet"), 
                         html.Span("Budget", className="me-2"),
                     ],

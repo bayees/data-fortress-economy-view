@@ -13,6 +13,7 @@ from components.NavbarVertical import sidebar
 from components.Footer import Footer
 from dash.dependencies import Input, Output
 from pages.home import home_page_content
+from pages.overview import overview_page_content
 from pages.budget import budget_page_content
 from pages.actuals import actuals_page_content
 from pages.transactions import transactions_page_content
@@ -96,6 +97,8 @@ app.layout = serve_layout
 def routing(path):
     if path == "/":
         return home_page_content
+    elif path == "/overview":
+        return overview_page_content
     elif path == "/budget":
         return budget_page_content
     elif path == "/actuals":
