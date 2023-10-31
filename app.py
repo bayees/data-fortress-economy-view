@@ -26,18 +26,6 @@ ROOT_FOLDER = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__fil
 SRC_FOLDER = os.path.join(ROOT_FOLDER, "/")
 ASSETS_FOLDER = os.path.join(SRC_FOLDER, "assets/")
 
-# Processed
-budget_df = get_budget()
-actuals_df = get_actuals()
-
-# Data Store for all the dataframes used in the app to avoid reading from server. Data is stored client side in JSON format.
-data_store = html.Div(
-    [
-        dcc.Store(id="budget-df", data=budget_df.to_json(date_format = 'iso')),
-        dcc.Store(id="actuals-df", data=actuals_df.to_json(date_format = 'iso')),
-    ]
-)
-
 external_style_sheet = glob.glob(
     os.path.join(ASSETS_FOLDER, "bootstrap/css") + "/*.css"
 )
@@ -54,6 +42,16 @@ app = dash.Dash(
 server = app.server
 
 def serve_layout():
+    budget_df = get_budget()
+    actuals_df = get_actuals()
+
+    data_store = html.Div(
+        [
+            dcc.Store(id="budget-df", data=budget_df.to_json(date_format = 'iso'), storage_type='session'),
+            dcc.Store(id="actuals-df", data=actuals_df.to_json(date_format = 'iso'), storage_type='session'),
+        ]
+    )
+
     return html.Div(
         className="layout-wrapper layout-content-navbar",
         children=[
